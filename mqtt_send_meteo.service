@@ -1,0 +1,19 @@
+[Unit]
+Description=MQTT Meteo Publication Script
+After=network.target
+
+[Service]
+Type=simple
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/meteo
+ExecStart=/home/admin/meteo/.venv/bin/python /home/admin/meteo/meteo_pub.py
+Restart=always
+RestartSec=5
+Environment="PATH=/home/admin/meteo/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifie=meteo_pub
+
+[Install]
+WantedBy=multi-user.target
