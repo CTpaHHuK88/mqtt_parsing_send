@@ -34,8 +34,6 @@ def sendMessage():
             "timestamp": datetime.now().strftime("%H:%M:%S"),
             "status_host": status_host
         }
-        data.append(new_item)
-
     MQTT_MESSAGE = json.dumps(data, cls=DateTimeEncoder)  # Преобразуем в строку
     return MQTT_MESSAGE
 #------
