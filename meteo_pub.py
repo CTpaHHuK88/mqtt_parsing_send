@@ -20,7 +20,7 @@ def sendMessage():
 
     with open('meteo.json', 'r') as file:
         data = json.load(file) # Сообщение   
-    # Проверяем тип данных  и формируем двнные для добавления
+        # Проверяем тип данных  и формируем двнные для добавления
     if isinstance(data, list):
         new_item = {
             "datestamp": datetime.now().strftime("%d.%m.%Y"),
@@ -34,6 +34,8 @@ def sendMessage():
             "timestamp": datetime.now().strftime("%H:%M:%S"),
             "status_host": status_host
         }
+        data.append(new_item)
+
     MQTT_MESSAGE = json.dumps(data, cls=DateTimeEncoder)  # Преобразуем в строку
     return MQTT_MESSAGE
 #------

@@ -11,9 +11,9 @@ class CheckHost():
                 ["ping", "-c", "1", self.host],  # Для Linux/Mac
                 # ["ping", "-n", "1", host],  # Для Windows
                 stderr=subprocess.STDOUT,
-                universal_newlines=True
+                universal_newlines=1
             )
-            STATUS_HOST = 1
+            STATUS_HOST = True
             return STATUS_HOST
             #print(output)  # Полный вывод ping
         except subprocess.CalledProcessError:
